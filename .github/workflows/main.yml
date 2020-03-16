@@ -1,0 +1,13 @@
+name: Build
+on: [push]
+
+jobs:
+  Build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+      run: |
+        cd osu.macOS.Agent
+        msbuild osu.macOS.Agent.csproj /p:Configuration=Release
+
