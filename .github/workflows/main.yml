@@ -5,9 +5,31 @@ jobs:
   Build:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Build
-      run: |
-        cd osu.macOS.Agent
-        msbuild osu.macOS.Agent.csproj /p:Configuration=Release
+      - uses: actions/checkout@v1
+      - name: Build
+        run: |
+          cd osu.macOS.Agent
+          msbuild osu.macOS.Agent.csproj /p:Configuration=Release
+          cd bin/Release
+          zip 'osu!macOS Agent.zip' -r 'osu!macOS Agent.app'
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./osu.macOS.Agent/bin/Release/osu!macOS Agent.zip
+          asset_name: osu!macOS Agent.zip
+          asset_content_type: application/zip
 

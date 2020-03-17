@@ -7,7 +7,7 @@ An auxiliary troubleshooting tool for osu!
 - Automatically move maps and skins added to the Downloads folder
 
 ## Installation
-1. Download the application and extract it
+1. Download the [latest application release](https://github.com/Techno-coder/osu-macOS-Agent/releases) and extract it
 2. Right click the application and click `Open`
 3. Click `Open`
 
