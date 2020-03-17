@@ -17,6 +17,7 @@ namespace osu.macOS.Agent
 			new Synapse(),
 
 			new IntegrityProtection(),
+			new LongEngine()
 		};
 	}
 
