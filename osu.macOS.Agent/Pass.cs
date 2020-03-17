@@ -9,6 +9,7 @@ namespace osu.macOS.Agent
 			new SystemVersion(),
 			new EngineVersion(),
 			new WrapperVersion(),
+			new ReleaseStream(),
 
 			new Quarantine(),
 			new DetectDirect3D(),

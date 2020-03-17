@@ -31,15 +31,15 @@ namespace osu.macOS.Agent
 		public void Load()
 		{
 			configuration = NSDictionary.FromFile(ConfigurationPath());
-			gameConfiguration = GameConfiguration.Load(ConfigurationPath());
+			gameConfiguration = GameConfiguration.Load(GameConfigurationPath());
 			gameUserConfiguration = GameConfiguration.Load(GameUserConfigurationPath());
 		}
 
 		public void Save()
 		{
 			configuration.WriteToFile(ConfigurationPath(), true);
-			gameUserConfiguration.Save(GameUserConfigurationPath());
-			gameConfiguration.Save(GameConfigurationPath());
+			gameUserConfiguration?.Save(GameUserConfigurationPath());
+			gameConfiguration?.Save(GameConfigurationPath());
 		}
 
 		public static string ExecuteCommand(string command)

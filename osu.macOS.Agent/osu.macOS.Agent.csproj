@@ -71,6 +71,7 @@
         <Compile Include="Passes\DetectDirect3D.cs" />
         <Compile Include="Passes\Information.cs" />
         <Compile Include="Passes\Quarantine.cs" />
+        <Compile Include="Passes\ReleaseStream.cs" />
         <Compile Include="PassTable.cs" />
         <Compile Include="ViewController.cs" />
         <Compile Include="ViewController.designer.cs">
