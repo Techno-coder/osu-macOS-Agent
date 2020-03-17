@@ -57,7 +57,7 @@ namespace osu.macOS.Agent
 	public enum Status
 	{
 		None,
-		Fail,
+		Failed,
 		Fixed,
 	}
 }

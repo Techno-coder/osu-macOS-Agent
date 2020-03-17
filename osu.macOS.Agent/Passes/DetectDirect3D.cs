@@ -10,7 +10,7 @@ namespace osu.macOS.Agent.Passes
 		public Entry Apply(Instance instance)
 		{
 			var enabled = (bool) (NSNumber) instance.configuration[TargetKey];
-			if (!enabled) return new Entry("Detect Direct3D is not enabled");
+			if (!enabled) return new Entry("Detect Direct3D is disabled");
 
 			var severity = NSProcessInfo.ProcessInfo
 				.IsOperatingSystemAtLeastVersion(HighSierra)

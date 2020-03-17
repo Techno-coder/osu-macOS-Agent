@@ -46,6 +46,9 @@ namespace osu.macOS.Agent
 		partial void NotificationsCheckboxClick(NSObject sender) =>
 			defaults.SetBool(true, NotificationCheckbox.Title);
 
+		partial void OpenGameFolderButtonClick(NSObject sender) =>
+			NSWorkspace.SharedWorkspace.OpenFile(instance.DataPath());
+
 		partial void ScanButtonClick(NSObject sender)
 		{
 			instance.Load();
@@ -59,7 +62,7 @@ namespace osu.macOS.Agent
 				}
 				catch (Exception exception)
 				{
-					var entry = new Entry(exception.ToString()) {status = Status.Fail};
+					var entry = new Entry(exception.ToString()) {status = Status.Failed};
 					passSource.entries.Add(entry);
 				}
 			});
@@ -83,7 +86,7 @@ namespace osu.macOS.Agent
 				}
 				catch (Exception)
 				{
-					entry.status = Status.Fail;
+					entry.status = Status.Failed;
 				}
 			});
 
@@ -135,6 +138,8 @@ namespace osu.macOS.Agent
 		{
 			MapMoveCheckbox.Enabled = enabled;
 			SkinMoveCheckbox.Enabled = enabled;
+			OpenGameFolderButton.Enabled = enabled;
+
 			ScanButton.Enabled = enabled;
 			RepairButton.Enabled = false;
 			ReportButton.Enabled = false;

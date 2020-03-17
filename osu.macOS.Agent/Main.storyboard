@@ -129,7 +129,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-7s-TOW">
-                                            <rect key="frame" x="15" y="202" width="83" height="22"/>
+                                            <rect key="frame" x="15" y="200" width="83" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Wine Engine:" id="B6O-EW-nd8">
                                                 <font key="font" metaFont="system"/>
@@ -138,7 +138,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-sl-rC4">
-                                            <rect key="frame" x="102" y="202" width="139" height="22"/>
+                                            <rect key="frame" x="102" y="200" width="139" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="No Wineskin Detected" id="NVs-Vn-1aU">
                                                 <font key="font" metaFont="system"/>
@@ -147,10 +147,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="lXY-AS-83A">
-                                            <rect key="frame" x="14" y="37" width="405" height="159"/>
+                                            <rect key="frame" x="14" y="37" width="401" height="159"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" ambiguous="YES" id="oxR-Ad-mKz">
-                                                <rect key="frame" x="3" y="3" width="399" height="153"/>
+                                                <rect key="frame" x="3" y="3" width="395" height="153"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="puc-h4-gEk">
@@ -184,6 +184,17 @@
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="NotificationsCheckboxClick:" target="XfG-lQ-9wD" id="DxQ-ia-xi4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niM-fJ-njR">
+                                                        <rect key="frame" x="240" y="13" width="141" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="push" title="Open osu! folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uia-Hy-1ng">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="OpenGameFolderButtonClick:" target="XfG-lQ-9wD" id="6uM-ff-Ep9"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -395,6 +406,7 @@ DQ
                         <outlet property="LocationTextField" destination="oD4-Vf-iNR" id="Je1-5M-9jl"/>
                         <outlet property="MapMoveCheckbox" destination="puc-h4-gEk" id="Cpr-gx-CwD"/>
                         <outlet property="NotificationCheckbox" destination="nxi-fs-1yn" id="CIA-gs-SLE"/>
+                        <outlet property="OpenGameFolderButton" destination="niM-fJ-njR" id="bPX-k0-zK8"/>
                         <outlet property="PassLabel" destination="mnS-YR-Ig6" id="NJA-pw-yPv"/>
                         <outlet property="PassProgress" destination="8T2-Vp-ITc" id="jAU-HL-VMC"/>
                         <outlet property="PassTable" destination="Av1-VR-PWu" id="NJi-ls-hO1"/>

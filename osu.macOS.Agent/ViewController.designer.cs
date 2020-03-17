@@ -26,6 +26,9 @@ namespace osu.macOS.Agent
 		AppKit.NSButton NotificationCheckbox { get; set; }
 
 		[Outlet]
+		AppKit.NSButton OpenGameFolderButton { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField PassLabel { get; set; }
 
 		[Outlet]
@@ -51,6 +54,9 @@ namespace osu.macOS.Agent
 
 		[Action ("NotificationsCheckboxClick:")]
 		partial void NotificationsCheckboxClick (Foundation.NSObject sender);
+
+		[Action ("OpenGameFolderButtonClick:")]
+		partial void OpenGameFolderButtonClick (Foundation.NSObject sender);
 
 		[Action ("RepairButtonClick:")]
 		partial void RepairButtonClick (Foundation.NSObject sender);
@@ -122,6 +128,11 @@ namespace osu.macOS.Agent
 			if (SkinMoveCheckbox != null) {
 				SkinMoveCheckbox.Dispose ();
 				SkinMoveCheckbox = null;
+			}
+
+			if (OpenGameFolderButton != null) {
+				OpenGameFolderButton.Dispose ();
+				OpenGameFolderButton = null;
 			}
 
 		}
