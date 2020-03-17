@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using Foundation;
 
 namespace osu.macOS.Agent
@@ -8,6 +9,8 @@ namespace osu.macOS.Agent
 	{
 		public readonly string rootPath;
 		public NSDictionary configuration;
+		public GameConfiguration gameConfiguration;
+		public GameConfiguration gameUserConfiguration;
 
 		public Instance(string rootPath)
 		{
@@ -16,6 +19,8 @@ namespace osu.macOS.Agent
 
 		public string DataPath() => Path.Combine(rootPath, "drive_c/osu!");
 		private string ConfigurationPath() => Path.Combine(rootPath, "Contents/Info.plist");
+		private string GameConfigurationPath() => Path.Combine(DataPath(), "osu!.cfg");
+		private string GameUserConfigurationPath() => Directory.GetFiles(DataPath(), "osu!.*.cfg").FirstOrDefault();
 
 		public string EngineVersion()
 		{
@@ -26,11 +31,15 @@ namespace osu.macOS.Agent
 		public void Load()
 		{
 			configuration = NSDictionary.FromFile(ConfigurationPath());
+			gameConfiguration = GameConfiguration.Load(ConfigurationPath());
+			gameUserConfiguration = GameConfiguration.Load(GameUserConfigurationPath());
 		}
 
 		public void Save()
 		{
 			configuration.WriteToFile(ConfigurationPath(), true);
+			gameUserConfiguration.Save(GameUserConfigurationPath());
+			gameConfiguration.Save(GameConfigurationPath());
 		}
 
 		public static string ExecuteCommand(string command)

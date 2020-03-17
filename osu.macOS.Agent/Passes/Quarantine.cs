@@ -16,7 +16,7 @@ namespace osu.macOS.Agent.Passes
 		public Status Repair(Instance instance)
 		{
 			Instance.ExecuteCommand($"{Name} -dr {Attribute} '{instance.rootPath}'");
-			return Status.Fixed;
+			return Apply(instance).severity != Severity.None ? Status.Failed : Status.Fixed;
 		}
 	}
 }

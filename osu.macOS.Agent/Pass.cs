@@ -12,6 +12,7 @@ namespace osu.macOS.Agent
 
 			new Quarantine(),
 			new DetectDirect3D(),
+			new CompatibilityMode()
 		};
 	}
 
