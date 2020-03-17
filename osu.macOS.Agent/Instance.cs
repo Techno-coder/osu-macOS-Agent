@@ -12,6 +12,8 @@ namespace osu.macOS.Agent
 		public GameConfiguration gameConfiguration;
 		public GameConfiguration gameUserConfiguration;
 
+		private static readonly NSOperatingSystemVersion Catalina = new NSOperatingSystemVersion(10, 15, 0);
+
 		public Instance(string rootPath)
 		{
 			this.rootPath = rootPath;
@@ -60,5 +62,8 @@ namespace osu.macOS.Agent
 			process.WaitForExit();
 			return process.StandardOutput.ReadToEnd();
 		}
+
+		public static bool RequiresLongArchitecture() =>
+			NSProcessInfo.ProcessInfo.IsOperatingSystemAtLeastVersion(Catalina);
 	}
 }
