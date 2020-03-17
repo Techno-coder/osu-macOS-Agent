@@ -20,6 +20,7 @@ namespace osu.macOS.Agent
 		}
 
 		public string DataPath() => Path.Combine(rootPath, "drive_c/osu!");
+		public string LoggingPath(string name) => Path.Combine(DataPath(), "Logs/" + name);
 		private string ConfigurationPath() => Path.Combine(rootPath, "Contents/Info.plist");
 		private string GameConfigurationPath() => Path.Combine(DataPath(), "osu!.cfg");
 		private string GameUserConfigurationPath() => Directory.GetFiles(DataPath(), "osu!.*.cfg").FirstOrDefault();
