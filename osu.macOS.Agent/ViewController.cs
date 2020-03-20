@@ -109,7 +109,10 @@ namespace osu.macOS.Agent
 		public override void ViewDidLoad()
 		{
 			// Defaults are stored in ~/Library/Preferences/*.osu.macOS.Agent.plist
-			if (!SelectLocation(defaults.StringForKey("location"))) return;
+			if (defaults.ValueForKey((NSString) "location") != null)
+				if (!SelectLocation(defaults.StringForKey("location")))
+					return;
+
 			if (LoadCheckbox(MapMoveCheckbox)) MapMoveCheckboxClick(null);
 			if (LoadCheckbox(SkinMoveCheckbox)) SkinMoveCheckboxClick(null);
 			if (LoadCheckbox(NotificationCheckbox)) NotificationsCheckboxClick(null);
