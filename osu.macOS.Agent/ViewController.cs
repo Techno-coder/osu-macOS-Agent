@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AppKit;
@@ -31,16 +32,23 @@ namespace osu.macOS.Agent
 		{
 			mapWatcher?.Dispose();
 			if (!MapMoveCheckbox.Enabled || MapMoveCheckbox.State != NSCellStateValue.On) return;
-			mapWatcher = WatchDownloads("*.osz", "Songs");
 			defaults.SetBool(true, MapMoveCheckbox.Title);
+			mapWatcher = WatchDownloads("*.osz", (path, target) =>
+				File.Move(path, $"{instance.DataPath()}/Songs/{target}"));
 		}
 
 		partial void SkinMoveCheckboxClick(NSObject sender)
 		{
 			skinWatcher?.Dispose();
 			if (!SkinMoveCheckbox.Enabled || SkinMoveCheckbox.State != NSCellStateValue.On) return;
-			skinWatcher = WatchDownloads("*.osk", "Skins");
 			defaults.SetBool(true, SkinMoveCheckbox.Title);
+			skinWatcher = WatchDownloads("*.osk", (path, target) =>
+			{
+				target = Path.GetFileNameWithoutExtension(target);
+				target = $"{instance.DataPath()}/Skins/{target}";
+				ZipFile.ExtractToDirectory(path, target);
+				File.Delete(path);
+			});
 		}
 
 		partial void NotificationsCheckboxClick(NSObject sender) =>
@@ -148,14 +156,14 @@ namespace osu.macOS.Agent
 			ReportButton.Enabled = false;
 		}
 
-		private FileSystemWatcher WatchDownloads(string pattern, string targetDirectory)
+		private FileSystemWatcher WatchDownloads(string pattern, Action<string, string> action)
 		{
 			var source = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Downloads");
 			var watcher = new FileSystemWatcher(source, pattern) {NotifyFilter = NotifyFilters.FileName};
 			watcher.Created += (_, arguments) =>
 			{
 				var target = Regex.Replace(arguments.Name, "[^a-zA-Z0-9-.\\s]", "");
-				File.Move(arguments.FullPath, $"{instance.DataPath()}/{targetDirectory}/{target}");
+				action(arguments.FullPath, target);
 
 				if (NotificationCheckbox.State == NSCellStateValue.Off) return;
 				var notificationCenter = NSUserNotificationCenter.DefaultUserNotificationCenter;

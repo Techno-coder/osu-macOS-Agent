@@ -49,6 +49,7 @@
     <ItemGroup>
         <Reference Include="System" />
         <Reference Include="System.Core" />
+        <Reference Include="System.IO.Compression.FileSystem" />
         <Reference Include="Xamarin.Mac" />
     </ItemGroup>
     <ItemGroup>
