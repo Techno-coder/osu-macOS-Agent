@@ -49,6 +49,12 @@ namespace osu.macOS.Agent
 		[Outlet]
 		AppKit.NSButton SkinMoveCheckbox { get; set; }
 
+		[Outlet]
+		AppKit.NSButton UpdateButton { get; set; }
+
+		[Outlet]
+		AppKit.NSProgressIndicator UpdateProgress { get; set; }
+
 		[Action ("MapMoveCheckboxClick:")]
 		partial void MapMoveCheckboxClick (Foundation.NSObject sender);
 
@@ -73,6 +79,9 @@ namespace osu.macOS.Agent
 		[Action ("SkinMoveCheckboxClick:")]
 		partial void SkinMoveCheckboxClick (Foundation.NSObject sender);
 
+		[Action ("UpdateButtonClick:")]
+		partial void UpdateButtonClick (Foundation.NSObject sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (EngineLabel != null) {
@@ -93,6 +102,11 @@ namespace osu.macOS.Agent
 			if (NotificationCheckbox != null) {
 				NotificationCheckbox.Dispose ();
 				NotificationCheckbox = null;
+			}
+
+			if (OpenGameFolderButton != null) {
+				OpenGameFolderButton.Dispose ();
+				OpenGameFolderButton = null;
 			}
 
 			if (PassLabel != null) {
@@ -130,9 +144,14 @@ namespace osu.macOS.Agent
 				SkinMoveCheckbox = null;
 			}
 
-			if (OpenGameFolderButton != null) {
-				OpenGameFolderButton.Dispose ();
-				OpenGameFolderButton = null;
+			if (UpdateButton != null) {
+				UpdateButton.Dispose ();
+				UpdateButton = null;
+			}
+
+			if (UpdateProgress != null) {
+				UpdateProgress.Dispose ();
+				UpdateProgress = null;
 			}
 
 		}

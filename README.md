@@ -5,6 +5,8 @@ An auxiliary troubleshooting tool for osu!
 
 ## Features
 - Automatically move maps and skins added to the Downloads folder
+- Button to update osu! executable
+- Button to open osu! folder
 
 ## Installation
 1. Download the [latest application release](https://github.com/Techno-coder/osu-macOS-Agent/releases) and extract it
@@ -26,6 +28,7 @@ Some of the checks that are performed include:
 - Engine version
 - Log file errors
 - Quarantine attribute
+- Execute flag
 - Razer Synapse
 
 The full list of checks is implemented in [this folder](https://github.com/Techno-coder/osu-macOS-Agent/tree/master/osu.macOS.Agent/Passes).

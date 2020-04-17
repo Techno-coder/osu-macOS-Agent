@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using AppKit;
 using Foundation;
@@ -16,6 +17,7 @@ namespace osu.macOS.Agent
 		private PassTableSource passSource;
 
 		private readonly NSUserDefaults defaults = NSUserDefaults.StandardUserDefaults;
+		private const string UpdateLocation = "https://m1.ppy.sh/r/osu!install.exe";
 
 		public ViewController(IntPtr handle) : base(handle) {}
 
@@ -114,6 +116,22 @@ namespace osu.macOS.Agent
 			NSPasteboard.GeneralPasteboard.WriteObjects(contents);
 		}
 
+		partial void UpdateButtonClick(NSObject sender)
+		{
+			UpdateButton.Enabled = false;
+			var client = new WebClient();
+			client.DownloadFileCompleted += (_, arguments) =>
+			{
+				UpdateButton.Enabled = true;
+				UpdateProgress.DoubleValue = 0;
+			};
+
+			client.DownloadProgressChanged += (_, arguments) =>
+				UpdateProgress.DoubleValue = arguments.ProgressPercentage;
+			var target = Path.Combine(instance.DataPath(), "osu!.exe");
+			client.DownloadFileAsync(new Uri(UpdateLocation), target);
+		}
+
 		public override void ViewDidLoad()
 		{
 			// Defaults are stored in ~/Library/Preferences/*.osu.macOS.Agent.plist
@@ -150,6 +168,7 @@ namespace osu.macOS.Agent
 			MapMoveCheckbox.Enabled = enabled;
 			SkinMoveCheckbox.Enabled = enabled;
 			OpenGameFolderButton.Enabled = enabled;
+			UpdateButton.Enabled = enabled;
 
 			ScanButton.Enabled = enabled;
 			RepairButton.Enabled = false;
