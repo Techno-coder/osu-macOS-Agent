@@ -12,6 +12,7 @@ namespace osu.macOS.Agent
 			new ReleaseStream(),
 
 			new Quarantine(),
+			new Executable(),
 			new DetectDirect3D(),
 			new CompatibilityMode(),
 			new Synapse(),

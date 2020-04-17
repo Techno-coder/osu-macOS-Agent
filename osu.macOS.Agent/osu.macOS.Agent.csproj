@@ -70,6 +70,7 @@
         <Compile Include="AppDelegate.cs" />
         <Compile Include="Passes\CompatibilityMode.cs" />
         <Compile Include="Passes\DetectDirect3D.cs" />
+        <Compile Include="Passes\Executable.cs" />
         <Compile Include="Passes\Information.cs" />
         <Compile Include="Passes\IntegrityProtection.cs" />
         <Compile Include="Passes\Logging.cs" />
