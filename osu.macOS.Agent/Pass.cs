@@ -15,13 +15,12 @@ namespace osu.macOS.Agent
 			new Executable(),
 			new DetectDirect3D(),
 			new CompatibilityMode(),
-			new Synapse(),
-
 			new IntegrityProtection(),
 			new LongEngine(),
+			new Synapse(),
 
-			new UpdateLogging(),
-			new RuntimeLogging()
+			new UpdateLogFile(),
+			new RuntimeLogFile(),
 		};
 	}
 

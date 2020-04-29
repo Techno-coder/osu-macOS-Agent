@@ -64,6 +64,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="GameConfiguration.cs" />
+        <Compile Include="General.cs" />
         <Compile Include="Instance.cs" />
         <Compile Include="Pass.cs" />
         <Compile Include="Main.cs" />
@@ -73,7 +74,7 @@
         <Compile Include="Passes\Executable.cs" />
         <Compile Include="Passes\Information.cs" />
         <Compile Include="Passes\IntegrityProtection.cs" />
-        <Compile Include="Passes\Logging.cs" />
+        <Compile Include="Passes\LogFile.cs" />
         <Compile Include="Passes\LongEngine.cs" />
         <Compile Include="Passes\Quarantine.cs" />
         <Compile Include="Passes\Synapse.cs" />

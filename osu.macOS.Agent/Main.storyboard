@@ -175,15 +175,15 @@
                                                             <action selector="SkinMoveCheckboxClick:" target="XfG-lQ-9wD" id="q3u-iz-3lC"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxi-fs-1yn">
-                                                        <rect key="frame" x="18" y="77" width="196" height="18"/>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1e-CX-B9R">
+                                                        <rect key="frame" x="18" y="77" width="287" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Enable notifications" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uSn-5H-Pfs">
+                                                        <buttonCell key="cell" type="check" title="Automatically open replays from Downloads" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Wsr-wc-ziO">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="NotificationsCheckboxClick:" target="XfG-lQ-9wD" id="DxQ-ia-xi4"/>
+                                                            <action selector="ReplayOpenCheckboxClick:" target="XfG-lQ-9wD" id="qNG-dG-Sw4"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niM-fJ-njR">
@@ -195,6 +195,17 @@
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="OpenGameFolderButtonClick:" target="XfG-lQ-9wD" id="6uM-ff-Ep9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxi-fs-1yn">
+                                                        <rect key="frame" x="18" y="57" width="196" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="check" title="Enable notifications" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uSn-5H-Pfs">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="NotificationsCheckboxClick:" target="XfG-lQ-9wD" id="DxQ-ia-xi4"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -247,7 +258,7 @@ DQ
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="jE6-L2-jaV">
                                                 <rect key="frame" x="1" y="0.0" width="399" height="196"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Ezp-Tn-G9f" viewBased="YES" id="Av1-VR-PWu">
                                                         <rect key="frame" x="0.0" y="0.0" width="399" height="171"/>
@@ -269,11 +280,11 @@ DQ
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="hYa-oX-AHC">
-                                                                        <rect key="frame" x="1" y="1" width="53" height="17"/>
+                                                                        <rect key="frame" x="1" y="1" width="52.5" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-sN-2oy">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="58.5" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Warning" id="Nm9-L2-3I7">
                                                                                     <font key="font" metaFont="system"/>
@@ -333,11 +344,11 @@ DQ
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="azw-T8-ywj">
-                                                                        <rect key="frame" x="99.5" y="1" width="297" height="17"/>
+                                                                        <rect key="frame" x="99.5" y="1" width="297.5" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZbS-wB-b0J">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="297" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="297.5" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Details" id="jz1-fo-Bft">
                                                                                     <font key="font" metaFont="system"/>
@@ -450,6 +461,7 @@ DQ
                         <outlet property="PassProgress" destination="8T2-Vp-ITc" id="jAU-HL-VMC"/>
                         <outlet property="PassTable" destination="Av1-VR-PWu" id="NJi-ls-hO1"/>
                         <outlet property="RepairButton" destination="0Rc-2G-mfa" id="A84-w2-Hax"/>
+                        <outlet property="ReplayOpenCheckbox" destination="N1e-CX-B9R" id="KPN-3X-aXT"/>
                         <outlet property="ReportButton" destination="UEJ-mT-MF3" id="LbX-xA-bIS"/>
                         <outlet property="ScanButton" destination="Hcc-b8-68t" id="UaH-ZX-pfG"/>
                         <outlet property="SkinMoveCheckbox" destination="81N-H5-xS1" id="6mT-t4-rfi"/>

@@ -29,6 +29,9 @@ namespace osu.macOS.Agent
 		AppKit.NSButton OpenGameFolderButton { get; set; }
 
 		[Outlet]
+		AppKit.NSButton OpenReplayCheckbox { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField PassLabel { get; set; }
 
 		[Outlet]
@@ -39,6 +42,9 @@ namespace osu.macOS.Agent
 
 		[Outlet]
 		AppKit.NSButtonCell RepairButton { get; set; }
+
+		[Outlet]
+		AppKit.NSButton ReplayOpenCheckbox { get; set; }
 
 		[Outlet]
 		AppKit.NSButtonCell ReportButton { get; set; }
@@ -66,6 +72,9 @@ namespace osu.macOS.Agent
 
 		[Action ("RepairButtonClick:")]
 		partial void RepairButtonClick (Foundation.NSObject sender);
+
+		[Action ("ReplayOpenCheckboxClick:")]
+		partial void ReplayOpenCheckboxClick (Foundation.NSObject sender);
 
 		[Action ("ReportButtonClick:")]
 		partial void ReportButtonClick (Foundation.NSObject sender);
@@ -109,6 +118,11 @@ namespace osu.macOS.Agent
 				OpenGameFolderButton = null;
 			}
 
+			if (OpenReplayCheckbox != null) {
+				OpenReplayCheckbox.Dispose ();
+				OpenReplayCheckbox = null;
+			}
+
 			if (PassLabel != null) {
 				PassLabel.Dispose ();
 				PassLabel = null;
@@ -127,6 +141,11 @@ namespace osu.macOS.Agent
 			if (RepairButton != null) {
 				RepairButton.Dispose ();
 				RepairButton = null;
+			}
+
+			if (ReplayOpenCheckbox != null) {
+				ReplayOpenCheckbox.Dispose ();
+				ReplayOpenCheckbox = null;
 			}
 
 			if (ReportButton != null) {
