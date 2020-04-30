@@ -52,8 +52,9 @@ namespace osu.macOS.Agent
 			defaults.SetBool(true, ReplayOpenCheckbox.Title);
 			replayWatcher = WatchDownloads("*.osr", (path, target) =>
 			{
+				target = Regex.Replace(target, @"\s+", "");
 				target = $"{instance.DataPath()}/Downloads/{target}";
-				var command = $"open -a {instance.rootPath} {target}";
+				var command = $"open -a '{instance.rootPath}' '{target}'";
 
 				File.Move(path, target);
 				Instance.ExecuteCommand(command);

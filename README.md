@@ -5,6 +5,7 @@ An auxiliary troubleshooting tool for osu!
 
 ## Features
 - Automatically move maps and skins added to the Downloads folder
+- Automatically open replays added to the Downloads folder
 - Button to update osu! executable
 - Button to open osu! folder
 

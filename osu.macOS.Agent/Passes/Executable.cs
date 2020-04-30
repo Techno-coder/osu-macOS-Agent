@@ -9,7 +9,7 @@ namespace osu.macOS.Agent.Passes
 		public Entry Apply(Instance instance)
 		{
 			var path = Path.Combine(instance.rootPath, Launcher);
-			var present = Instance.ExecuteCommand($"stat -F {path}")[9] == 'x';
+			var present = Instance.ExecuteCommand($"stat -F '{path}'")[9] == 'x';
 			return !present
 				? new Entry("Execute flag is absent", Severity.Error)
 				: new Entry("Execute flag is present");
@@ -17,7 +17,7 @@ namespace osu.macOS.Agent.Passes
 
 		public Status Repair(Instance instance)
 		{
-			Instance.ExecuteCommand($"chmod -R +x {instance.rootPath}");
+			Instance.ExecuteCommand($"chmod -R +x '{instance.rootPath}'");
 			return Status.Fixed;
 		}
 	}

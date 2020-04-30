@@ -7,7 +7,7 @@ namespace osu.macOS.Agent.Passes
 
 		public Entry Apply(Instance instance)
 		{
-			var data = Instance.ExecuteCommand($"{Name} {instance.rootPath}");
+			var data = Instance.ExecuteCommand($"{Name} '{instance.rootPath}'");
 			return data.Contains(Attribute)
 				? new Entry("Quarantine attribute is present", Severity.Error)
 				: new Entry("Quarantine attribute is absent");
