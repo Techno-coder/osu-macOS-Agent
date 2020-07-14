@@ -138,7 +138,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew1-sl-rC4">
-                                            <rect key="frame" x="102" y="200" width="139" height="22"/>
+                                            <rect key="frame" x="102" y="200" width="312" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="No Wineskin Detected" id="NVs-Vn-1aU">
                                                 <font key="font" metaFont="system"/>

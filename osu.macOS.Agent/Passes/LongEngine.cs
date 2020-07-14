@@ -10,7 +10,8 @@ namespace osu.macOS.Agent.Passes
 		{
 			var suffix = instance.EngineVersion().Substring(2);
 			var version = int.Parse(new string(suffix.TakeWhile(char.IsDigit).ToArray()));
-			if (!Instance.RequiresLongArchitecture() || version > 10) return new Entry("Engine version is supported");
+			if (!Instance.RequiresLongArchitecture() || version > 10)
+				return new Entry("Engine version is supported");
 			return new Entry(Error, Severity.Error);
 		}
 
