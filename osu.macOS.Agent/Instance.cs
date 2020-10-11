@@ -61,7 +61,7 @@ namespace osu.macOS.Agent
 
 			process.Start();
 			process.WaitForExit();
-			return process.StandardOutput.ReadToEnd();
+			return process.StandardOutput.ReadToEnd().Trim();
 		}
 
 		public static bool RequiresLongArchitecture() =>
