@@ -15,9 +15,13 @@ namespace osu.macOS.Agent
 
 		partial void SelectButton(NSObject sender)
 		{
-			var panel = new NSOpenPanel {Message = "Select osu!.app application"};
-			panel.RunModal();
+			var panel = new NSOpenPanel
+			{
+				Message = "Select osu!.app application",
+				AllowedFileTypes = new[] {"app"}
+			};
 
+			panel.RunModal();
 			if (panel.Filenames.Length == 0) return;
 			SelectLocation(panel.Filenames[0]);
 		}
