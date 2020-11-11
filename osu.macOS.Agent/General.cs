@@ -56,6 +56,7 @@ namespace osu.macOS.Agent
 			defaults.SetBool(true, ReplayOpenCheckbox.Title);
 			replayWatcher = WatchDownloads("*.osr", (path, target) =>
 			{
+				// Replay fails to open with whitespace characters.
 				target = Regex.Replace(target, @"\s+", "");
 				target = $"{instance.DataPath()}/Downloads/{target}";
 				var command = $"open -a '{instance.rootPath}' '{target}'";
@@ -77,7 +78,7 @@ namespace osu.macOS.Agent
 			var watcher = new FileSystemWatcher(source, pattern) {NotifyFilter = NotifyFilters.FileName};
 			watcher.Created += (_, arguments) =>
 			{
-				var target = Regex.Replace(arguments.Name, "[^a-zA-Z0-9-.\\s]", "");
+				var target = Regex.Replace(arguments.Name, "[<>:\"/\\|?*]", "");
 				action(arguments.FullPath, target);
 
 				if (NotificationCheckbox.State == NSCellStateValue.Off) return;
