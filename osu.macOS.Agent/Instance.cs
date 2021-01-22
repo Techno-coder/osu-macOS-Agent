@@ -27,8 +27,10 @@ namespace osu.macOS.Agent
 
 		public string EngineVersion()
 		{
-			var path = Path.Combine(rootPath, "Contents/Frameworks/wswine.bundle/version");
-			return File.Exists(path) ? File.ReadAllText(path).Trim() : null;
+			var target = Path.Combine(rootPath, "Contents/SharedSupport/wine/version");
+			var legacy = Path.Combine(rootPath, "Contents/Frameworks/wswine.bundle/version");
+			var path = File.Exists(target) ? target : File.Exists(legacy) ? legacy : null;
+			return path == null ? null : File.ReadAllText(path).Trim();
 		}
 
 		public void Load()

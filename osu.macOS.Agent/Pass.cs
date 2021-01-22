@@ -11,7 +11,8 @@ namespace osu.macOS.Agent
 			new WrapperVersion(),
 			new ReleaseStream(),
 
-			new Quarantine(),
+			new QuarantineBundle(),
+			new QuarantineWrapper(),
 			new Executable(),
 			new DetectDirect3D(),
 			new CompatibilityMode(),
